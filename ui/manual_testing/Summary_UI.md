@@ -14,7 +14,7 @@ This report wraps up the results and insights from my manual testing of the UI c
 ### ❗ Main Bugs Found
 - Login failure despite valid credentials (UI Bug)
 - Cart quantity not updating correctly
-- "Write Review" accepts empty reviews
+- Search with some special character shows products
 - Email field accepts input without `.com` (validation bug)
 
 ---
