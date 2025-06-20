@@ -64,7 +64,7 @@ This document captures all the bugs found during manual testing and exploratory 
 - **What I Did:** Entered an expired credit card during checkout.  
 - **Steps to Reproduce:**
   1. Add items to the cart and proceed to checkout.
-  2. Enter expired card details (e.g., `01/22`) and click **Pay and Confirm Order**.  
+  2. Enter expired card details and click **Pay and Confirm Order**.  
 - **What I Expected:** An error message about invalid or expired card.  
 - **What Actually Happened:** Payment went through successfully, which shouldn’t happen.  
 - **Severity:** High  
@@ -77,10 +77,10 @@ This document captures all the bugs found during manual testing and exploratory 
 ### ❌ Bug 5 – Invalid Email Accepted for Subscription
 
 - **Test Case:** TC_036  
-- **What I Did:** Tried subscribing with an invalid email (like "abc@").  
+- **What I Did:** Tried subscribing with an invalid email.  
 - **Steps to Reproduce:**
   1. Scroll to the **Subscription** box in the footer.
-  2. Enter `abc@` as the email.
+  2. Enter `abc@gmail` as the email.
   3. Click **Subscribe**.  
 - **What I Expected:** To see a validation error and subscription blocked.  
 - **What Actually Happened:** I got a success message even though the email was invalid.  
@@ -97,7 +97,7 @@ This document captures all the bugs found during manual testing and exploratory 
 - **What I Did:** Tried subscribing again with an email that’s already subscribed.  
 - **Steps to Reproduce:**
   1. Scroll to the **Subscription** box.
-  2. Enter an already subscribed email (e.g., `user@gmail.com`).
+  2. Enter an already subscribed email (e.g., `ROCKY1@GMAIL.COM`).
   3. Click **Subscribe**.  
 - **What I Expected:** A message telling me this email is already subscribed.  
 - **What Actually Happened:** The system accepted it and showed a success message again.  
@@ -114,7 +114,7 @@ This document captures all the bugs found during manual testing and exploratory 
 - **What I Did:** Entered an email with spaces before and after it.  
 - **Steps to Reproduce:**
   1. Go to the **Subscribe** section.
-  2. Enter an email with spaces like `"  test@email.com  "` and click **Subscribe**.  
+  2. Enter an email with spaces like `"  rocky1@gmail.com  "` and click **Subscribe**.  
 - **What I Expected:** The system should trim spaces or show an error.  
 - **What Actually Happened:** The email was accepted as-is.  
 - **Severity:** Low  
@@ -166,7 +166,7 @@ This document captures all the bugs found during manual testing and exploratory 
 - **Actual:** The system accepted it without complaint.  
 - **Severity:** Medium  
 - 📸 **Screenshot:**  
-  ![Incomplete Email Bug](Screenshots/BUG_008.png)
+  ![Incomplete Email Bug](Screenshots/BUG_010.png)
 
 ---
 
