@@ -21,7 +21,7 @@ This document captures all the bugs found during manual testing and exploratory 
 - **Severity:** Medium 
 - **Current Status:** Open  
 - 📸 **Screenshot:**  
-  ![Case-sensitive Email Bug](Test_Execution_Screenshots/TC_011.png)
+  ![Case-sensitive Email Bug](Screenshots/TC_011.png)
 
 ---
 
@@ -37,7 +37,7 @@ This document captures all the bugs found during manual testing and exploratory 
 - **Severity:** Medium  
 - **Current Status:** Still open, needs fixing  
 - 📸 **Screenshot:**  
-  ![Search Empty Input Bug](Test_Execution_Screenshots/TC_020.png)
+  ![Search Empty Input Bug](Screenshots/TC_020.png)
 
 ---
 
@@ -54,7 +54,7 @@ This document captures all the bugs found during manual testing and exploratory 
 - **Severity:** High (affects checkout flow)  
 - **Current Status:** Open  
 - 📸 **Screenshot:**  
-  ![Cart Quantity Update Bug](Test_Execution_Screenshots/TC_025.png)
+  ![Cart Quantity Update Bug](Screenshots/TC_025.png)
 
 ---
 
@@ -70,7 +70,7 @@ This document captures all the bugs found during manual testing and exploratory 
 - **Severity:** High  
 - **Current Status:** Open  
 - 📸 **Screenshot:**  
-  ![Expired Card Checkout Bug](Test_Execution_Screenshots/TC_029.png)
+  ![Expired Card Checkout Bug](Screenshots/TC_029.png)
 
 ---
 
@@ -87,7 +87,7 @@ This document captures all the bugs found during manual testing and exploratory 
 - **Severity:** Low  
 - **Current Status:** Open  
 - 📸 **Screenshot:**  
-  ![Invalid Email Bug](Test_Execution_Screenshots/TC_036.png)
+  ![Invalid Email Bug](Screenshots/TC_036.png)
 
 ---
 
@@ -104,7 +104,7 @@ This document captures all the bugs found during manual testing and exploratory 
 - **Severity:** Low  
 - **Current Status:** Open  
 - 📸 **Screenshot:**  
-  ![Duplicate Email Bug](Test_Execution_Screenshots/TC_039_duplicate_email_bug.png)
+  ![Duplicate Email Bug](Screenshots/TC_039.png)
 
 ---
 
@@ -120,7 +120,7 @@ This document captures all the bugs found during manual testing and exploratory 
 - **Severity:** Low  
 - **Current Status:** Open  
 - 📸 **Screenshot:**  
-  ![Whitespace Email Bug](Test_Execution_Screenshots/TC_040.png)
+  ![Whitespace Email Bug](Screenshots/TC_040.png)
 
 ---
 
@@ -138,7 +138,7 @@ This document captures all the bugs found during manual testing and exploratory 
 - **Actual:** The product list simply reset to the default view.  
 - **Severity:** Medium  
 - 📸 **Screenshot:**  
-  ![Hash Input Bug](Bug_Screenshots/BUG_008.png)
+  ![Hash Input Bug](Screenshots/BUG_008.png)
 
 ---
 
@@ -152,7 +152,7 @@ This document captures all the bugs found during manual testing and exploratory 
 - **Actual:** It returned a completely unrelated product.  
 - **Severity:** Low  
 - 📸 **Screenshot:**  
-  ![Dot Search Bug](Bug_Screenshots/BUG_009.png)
+  ![Dot Search Bug](Screenshots/BUG_009.png)
 
 ---
 
@@ -166,7 +166,7 @@ This document captures all the bugs found during manual testing and exploratory 
 - **Actual:** The system accepted it without complaint.  
 - **Severity:** Medium  
 - 📸 **Screenshot:**  
-  ![Incomplete Email Bug](Bug_Screenshots/BUG_008.png)
+  ![Incomplete Email Bug](Screenshots/BUG_008.png)
 
 ---
 
