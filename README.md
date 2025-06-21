@@ -19,9 +19,6 @@ This repository contains a comprehensive QA portfolio project based on the [Auto
 
 ---
 
-
----
-
 ## Disclaimer
 
 This project uses the publicly available [AutomationExercise](https://automationexercise.com) website solely for educational and testing purposes.  
