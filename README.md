@@ -29,6 +29,14 @@ No commercial use or redistribution of website assets is intended or authorized.
 
 The purpose of this project is to demonstrate Quality Assurance skills and build a professional portfolio.
 
+## Feedback & Contributions
+
+I welcome any feedback, suggestions, or collaboration to help improve this project!  
+Feel free to open issues or submit pull requests if you find bugs or have ideas.  
+
+Your input helps me grow and make this portfolio even better!
+
+
 
 
 
