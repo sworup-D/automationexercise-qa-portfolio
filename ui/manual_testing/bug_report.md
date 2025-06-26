@@ -166,7 +166,7 @@ This document captures all the bugs found during manual testing and exploratory 
 - **Actual:** The system accepted it without complaint.  
 - **Severity:** Medium  
 - 📸 **Screenshot:**  
-  ![Incomplete Email Bug](Screenshots/BUG_010.png)
+  ![Incomplete Email Bug](Screenshots/BUG_008.png)
 
 ---
 

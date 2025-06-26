@@ -15,7 +15,6 @@ Everything here was tested manually using planned test cases and some explorator
 | `bug_reports.md`              | 10 detailed bug reports (Markdown format) |
 | `Screenshots`/                | Screenshots of failed cases (for 7 bugs) |
 | `Summary_UI.md`               | Final observations, takeaways, and key issues |
-
 ---
 
 ## 🔍 Scope Covered
