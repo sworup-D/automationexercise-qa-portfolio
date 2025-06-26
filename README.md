@@ -3,7 +3,8 @@
 ## Progress Status
 - ✅ Manual UI Testing: Completed
 - ⏳ Manual API Testing: In Progress
-- ⏳ Automation (UI + API): Upcoming
+- ⏳ Automation API: Upcoming
+- ⏳ Automation UI: Upcoming
 - ⏳ CI/CD Integration: Upcoming
 
 This project is actively developed with daily work. Updates to this repository are made weekly after completing each planned task or project part.
