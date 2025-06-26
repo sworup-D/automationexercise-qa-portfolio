@@ -11,12 +11,10 @@ Everything here was tested manually using planned test cases and some explorator
 
 | File/Folder                   | Description |
 |-------------------------------|-------------|
-| `TestPlan_UI.md`              | My strategy and scope for manual UI testing |
 | `TestCases_UI.xlsx`           | 41 planned test cases covering key features |
-| `TestExecution_Summary.md`    | Actual execution results (Pass/Fail) |
-| `bug_reports.md`               | 10 detailed bug reports (Markdown format) |
-| `Screenshots`/                 | Screenshots of failed cases (for 7 bugs) |
-| `Summary_UI_Testing.md`       | Final observations, takeaways, and key issues |
+| `bug_reports.md`              | 10 detailed bug reports (Markdown format) |
+| `Screenshots`/                | Screenshots of failed cases (for 7 bugs) |
+| `Summary_UI.md`               | Final observations, takeaways, and key issues |
 
 ---
 
