@@ -30,7 +30,7 @@ newman run AutomationExercise_API_Test_Suite.postman_collection.json \
   -e Automationexercise_API_Env.postman_environment.json \
   -r cli,html \
   --reporter-html-export report.html
-
+```
 
 ## ⚠️ Known Backend Behavior – Invalid Email Registration Discrepancy
 
