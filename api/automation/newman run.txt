@@ -1,1 +1,0 @@
-newman run "AutomationExercise API Test Suite.postman_collection.json" -e "AutomationExercise API Env.postman_environment.json" -r cli,htmlextra --reporter-htmlextra-export "./api/automation/NewmanExtraReport_2025-06-27.html"
