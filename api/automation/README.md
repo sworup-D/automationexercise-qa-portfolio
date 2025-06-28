@@ -73,5 +73,5 @@ This is a backend validation and data consistency issue, **not a fault in the au
 ### 2️⃣ Newman Automated Run
 
 ![Newman Output 1](./screenshots/Newman_output_1.png)  
-![Newman Output 2](./screenshots/Newman_output_2.png)  
-![Newman Output 3](./screenshots/Newman_output_3.png)
+![Newman Output 2](./screenshots/newman_output_2.png)  
+![Newman Output 3](./screenshots/newman_output_3.png)
