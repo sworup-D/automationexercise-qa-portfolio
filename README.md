@@ -2,8 +2,8 @@
 
 ## Progress Status
 - ✅ Manual UI Testing: Completed
-- ⏳ Manual API Testing: In Progress
-- ⏳ Automation API: Upcoming
+- ✅ Manual API Testing: Completed
+- ✅ API Automation (Newman): Completed
 - ⏳ Automation UI: Upcoming
 - ⏳ CI/CD Integration: Upcoming
 
