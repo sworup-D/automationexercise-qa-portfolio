@@ -76,7 +76,7 @@
 | UI Bug Reports               | `ui/manual_testing/bug_report.md`        |
 | API Manual Test Cases        | `api/manual_testing/api_test_cases.xlsx` |
 | API Bug Reports              | `api/manual_testing/api_bug_reports.md`  |
-| Request/Response Screenshots | In respective `Screenshots/` folders     |
+| Request/Response Screenshots | In respective `screenshots/` folders     |
 | Test Plan                    | `docs/test_plan.md`                      |
 
 ---
@@ -84,7 +84,6 @@
 ## ✅ Next Steps
 
 - Begin Cypress-based UI automation testing.
-- Begin Postman automation validation with test scripts.
 - Integrate GitHub Actions CI for Cypress automation.
 - Finalize reporting and close testing cycle with 100% automation coverage.
 
