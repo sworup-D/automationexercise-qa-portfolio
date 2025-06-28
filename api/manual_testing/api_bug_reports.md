@@ -26,7 +26,7 @@ This document captures all the bugs found during manual and exploratory API test
 - **Severity:** Medium  
 - **Current Status:** Open  
 - 📸 **Screenshot:**  
-  ![Invalid Email Accepted](screenshots_api/TC_USER_05_RegisterUser_InvalidEmailFormat_Fail.png)
+  ![Invalid Email Accepted](screenshots/TC_USER_05_RegisterUser_InvalidEmailFormat_Fail.png)
 
 ---
 
@@ -44,7 +44,7 @@ This document captures all the bugs found during manual and exploratory API test
 - **Issue Type:** Validation – Improper input handling  
 - **Current Status:** Open  
 - 📸 **Screenshot:**  
-  ![Invalid Email Login Bug](screenshots_api/TC_AUTH_06_Login_InvalidEmailFormat_Fail.png)
+  ![Invalid Email Login Bug](screenshots/TC_AUTH_06_Login_InvalidEmailFormat_Fail.png)
 
 ---
 
@@ -65,7 +65,7 @@ This document captures all the bugs found during manual and exploratory API test
 - **Issue Type:** Validation + Status Code Mismatch  
 - **Current Status:** Open  
 - 📸 **Screenshot:**  
-  ![Missing Email Bug](screenshots_api/BUG_MISSING_EMAIL.png)
+  ![Missing Email Bug](screenshots/BUG_MISSING_EMAIL.png)
 
 ---
 
@@ -87,7 +87,7 @@ This bug shows that the API does not respect proper HTTP status conventions. Ret
 - **Severity:** High – registration without password is a critical security risk  
 - **Current Status:** Open  
 - 📸 **Screenshot:**  
-  ![Missing Password Bug](screenshots_api/BUG_MISSING_PASSWORD.png)
+  ![Missing Password Bug](screenshots/BUG_MISSING_PASSWORD.png)
 
 ---
 
