@@ -1,0 +1,23 @@
+# Ignore Newman HTML reports generated inside api/automation/
+api/automation/results/
+api/automation/*.html
+
+# Ignore Postman backup files (optional)
+*.postman_collection.json.backup
+*.postman_environment.json.backup
+
+# Ignore Node.js dependencies (if any)
+node_modules/
+
+# OS junk files
+.DS_Store
+Thumbs.db
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# IDE/editor folders (optional)
+.vscode/
+.idea/
