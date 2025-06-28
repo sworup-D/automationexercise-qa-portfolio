@@ -1,0 +1,1282 @@
+{
+	"info": {
+		"_postman_id": "d35915da-ac8a-4fb5-9f7f-f3a8e1b0d6ed",
+		"name": "AutomationExercise API Test Suite",
+		"description": "# 🧪 API Testing Collection – AutomationExercise.com\n\nThis collection contains **manual API test cases** designed for the public API of [AutomationExercise.com](https://automationexercise.com).\n\n## 🔍 Purpose\n\nTo validate the core functionality, input handling, and response correctness of the available API endpoints across key modules.\n\n## 📦 Modules Covered\n\n- 🛍️ Products (List, Schema, Query Params)\n    \n- 🏷️ Brands (List, Invalid Method)\n    \n- 🔍 Search (Valid, Invalid, Edge Inputs)\n    \n- 🔐 Authentication (Valid/Invalid Login, Validation Bugs)\n    \n- 👤 User Management (Register, Delete, Email Validation)\n    \n\n## 🧪 Test Types\n\n- ✅ Positive Tests\n    \n- ❌ Negative Tests\n    \n- ⚠️ Edge Cases\n    \n- 🐞 Known Bugs\n    \n\n## 🛠️ Structure\n\n- Organized by module folders\n    \n- Each request includes a detailed description with:\n    \n    - Test Case ID\n        \n    - Title\n        \n    - Objective\n        \n    - Purpose\n        \n    - Method\n        \n    - Endpoint\n        \n    - Precondition\n        \n    - Test Steps\n        \n    - Expected Result\n        \n    - Test Data (if applicable)\n        \n\n## ⚙️ Notes\n\n- Base URL: `https://automationexercise.com`\n    \n- Authentication is not required (public API)\n    \n- Includes sample test scripts (status check, field validation)\n    \n- Includes basic test scripts to validate HTTP status codes and JSON response content.\n    \n\n📁 Built to showcase professional API testing using Postman.  \nCreated by: **Sworup Dhungana**",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44736632",
+		"_collection_link": "https://sworup-2824527.postman.co/workspace/81e74bfc-e83e-498e-830f-abe52ed3cc1c/collection/44736632-d35915da-ac8a-4fb5-9f7f-f3a8e1b0d6ed?action=share&source=collection_link&creator=44736632"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "TC_PROD_01 : Get All Products List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Parse thre response body once\r",
+									"const body = pm.response.json();\r",
+									"\r",
+									"// Check HTTP status\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the response body is not empty and is in JSON format.\r",
+									"pm.test(\"Response must have a body\", () => {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"// Check if the response contains the expected keys and values.\r",
+									"pm.test(\"Response contains expected keys\", () => {\r",
+									"  pm.expect(body).to.have.property(\"responseCode\");\r",
+									"  pm.expect(body).to.have.property(\"products\"); \r",
+									"});\r",
+									"\r",
+									"// Check API response code\r",
+									"pm.test(\"responseCode is 200\", function () {\r",
+									"    pm.expect(body.responseCode).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"// Check if the 'products' array is not empty.\r",
+									"pm.test(\"Response body contains 'products' array\", function () {\r",
+									"    pm.expect(body).to.have.property(\"products\");\r",
+									"    pm.expect(body.products).to.be.an(\"array\").that.is.not.empty;\r",
+									"});\r",
+									"\r",
+									"// Check if each product in the 'products' array has the expected keys.\r",
+									"pm.test(\"Each product has 'id', 'name', 'price', 'brand', and 'category'\", function () {\r",
+									"    body.products.forEach((product) => {\r",
+									"        pm.expect(product).to.have.property(\"id\");\r",
+									"        pm.expect(product).to.have.property(\"name\");\r",
+									"        pm.expect(product).to.have.property(\"price\");\r",
+									"        pm.expect(product).to.have.property(\"brand\");\r",
+									"        pm.expect(product).to.have.property(\"category\");\r",
+									"    });\r",
+									"});\r",
+									"pm.test(\"Response time is under 1500ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/productsList",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"productsList"
+							]
+						},
+						"description": "#### 🧪 TC_PROD_01 – Get All Products List\n\n**Test Case ID:** TC_PROD_01  \n**Title:** Get All Products List  \n**Objective:** Return all products correctly  \n**Purpose:** This endpoint retrieves a list of products available in the system. It is useful for clients looking to display product information on their platforms.  \n**Method:** `GET`  \n**Endpoint:** `https://automationexercise.com/api/productsList`  \n**Preconditions:** API is up\n\n**Request Parameters:** None\n\n**Test Steps:**\n\n1. Send a GET request to `/api/productsList`\n    \n2. Validate response schema\n    \n\n**Expected Result:**\n\n- Status: 200 OK\n    \n- Response:\n    \n\n``` json\n  \"responseCode\": 0,\n  \"products\": [\n    {\n      \"id\": 0,\n      \"name\": \"\",\n      \"price\": \"\",\n      \"brand\": \"\",\n      \"category\": {\n        \"usertype\": {\n          \"usertype\": \"\"\n        },\n        \"category\": \"\"\n      }\n    }\n  ]\n}\n\n ```\n\n### Additional Context\n\nThis endpoint is useful for applications that need to display a catalog of products to users, allowing for further filtering or selection based on the returned product data."
+					},
+					"response": []
+				},
+				{
+					"name": "TC_PROD_02 : POST to product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const body = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains expected keys\", function () {\r",
+									"    pm.expect(body).to.have.property(\"responseCode\");\r",
+									"    pm.expect(body).to.have.property(\"message\");\r",
+									"    \r",
+									"});\r",
+									" \r",
+									"pm.test(\"responseCode is 405\", function () {\r",
+									"    pm.expect(body.responseCode).to.eql(405);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response message\", function () {\r",
+									"    pm.expect(body.message).to.eql(\"This request method is not supported.\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is under 500ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/productsList",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"productsList"
+							]
+						},
+						"description": "#### 🧪 TC_PROD_02 – POST to Products List Rejected\n\n**Test Case ID:** TC_PROD_02  \n**Title:** POST to Products List Rejected  \n**Objective:** Reject unsupported POST method on GET-only endpoint  \n**Purpose:** Ensure API handles incorrect methods gracefully  \n**Method:** `POST`  \n**Endpoint:** `https://automationexercise.com/api/productsList`  \n**Preconditions:** API is up\n\n**📥 Test Data:**\n\n```\n{}\n\n ```\n\n**Test Steps:**\n\n1. Send a POST request to `/api/productsList` with empty body\n    \n2. Observe response code\n    \n\n**Expected Result:**\n\n- Status: 405 Method Not Allowed"
+					},
+					"response": []
+				},
+				{
+					"name": "TC_PROD_04 : GET product with invalid query param",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const body = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response must have a body\", () => {\r",
+									"  pm.response.to.be.withBody;\r",
+									"  pm.response.to.be.json;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains expected keys\", () => {\r",
+									"  pm.expect(body).to.have.property(\"responseCode\");\r",
+									"  pm.expect(body).to.have.property(\"products\"); \r",
+									"});\r",
+									"\r",
+									"pm.test(\"responseCode is 200\", function () {\r",
+									"    pm.expect(body.responseCode).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body contains 'products' array\", function () {\r",
+									"    pm.expect(body).to.have.property(\"products\");\r",
+									"    pm.expect(body.products).to.be.an(\"array\").that.is.not.empty;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Each product has 'id', 'name', 'price', 'brand', and 'category'\", function () {\r",
+									"    body.products.forEach((product) => {\r",
+									"        pm.expect(product).to.have.property(\"id\");\r",
+									"        pm.expect(product).to.have.property(\"name\");\r",
+									"        pm.expect(product).to.have.property(\"price\");\r",
+									"        pm.expect(product).to.have.property(\"brand\");\r",
+									"        pm.expect(product).to.have.property(\"category\");\r",
+									"    });\r",
+									"});\r",
+									"pm.test(\"Response time is under 1500ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/productsList?foo=bar",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"productsList"
+							],
+							"query": [
+								{
+									"key": "foo",
+									"value": "bar"
+								}
+							]
+						},
+						"description": "#### 🧪 TC_PROD_04 – GET Products with Invalid Query Params\n\n**Test Case ID:** TC_PROD_04  \n**Title:** GET Products with Invalid Query Params  \n**Objective:** Ensure API ignores unexpected query parameters  \n**Purpose:** Test API robustness with unknown inputs  \n**Method:** `GET`  \n**Endpoint:** `https://automationexercise.com/api/productsList?foo=bar`  \n**Preconditions:** API is up\n\n**Test Steps:**\n\n1. Send GET with key with Unknown param\n    \n2. Ensure response remains unaffected\n    \n\n**Expected Result:**\n\n- Status: 200 OK\n    \n- Unknown parameters ignored, valid product list returned"
+					},
+					"response": []
+				}
+			],
+			"description": "Contains test cases for `/api/productsList`.\n\nCovers product list retrieval, schema validation, unsupported methods, and response behavior for unknown query parameters."
+		},
+		{
+			"name": "Brands",
+			"item": [
+				{
+					"name": "TC_BRAND_01 : Get All Brand list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const body = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									" \r",
+									"pm.test(\"Response must have a body\", () => {\r",
+									"    pm.response.to.be.withBody;\r",
+									"    pm.response.to.be.json;\r",
+									"});\r",
+									"pm.test(\"responseCode is 200\", function () {\r",
+									"    pm.expect(body.responseCode).to.eql(200);\r",
+									"});\r",
+									"pm.test(\"Response contains expected keys\", () => {\r",
+									"    pm.expect(body).to.have.property(\"responseCode\");\r",
+									"    pm.expect(body).to.have.property(\"brands\"); \r",
+									"});\r",
+									"pm.test(\"Response body contains 'brands' array\", function () {\r",
+									"    pm.expect(body).to.have.property(\"brands\");\r",
+									"    pm.expect(body.brands).to.be.an(\"array\").that.is.not.empty;\r",
+									"});\r",
+									"pm.test(\"Each brand has 'id' and 'brand'\", function () {\r",
+									"    if (body.brands) {\r",
+									"        body.brands.forEach((brand) => {\r",
+									"            pm.expect(brand).to.have.property('id');\r",
+									"            pm.expect(brand).to.have.property('brand');\r",
+									"        });\r",
+									"    }\r",
+									"});\r",
+									"pm.test(\"Response time is under 1500ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/brandsList",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"brandsList"
+							]
+						},
+						"description": "#### 🧪 TC_BRAND_01 – Get All Brands List\n\n**Test Case ID:** TC_BRAND_01  \n**Title:** Get All Brands List  \n**Objective:** Return all brands correctly  \n**Purpose:** Fetch all brand names available in the system  \n**Method:** `GET`  \n**Endpoint:** `https://automationexercise.com/api/brandsList`  \n**Preconditions:** API is up\n\n**Test Steps:**\n\n1. Send GET request to `/api/brandsList`\n    \n2. Validate brand array in response\n    \n\n**Expected Result:**\n\n- Status: 200 OK\n    \n- Array of brand names returned"
+					},
+					"response": []
+				},
+				{
+					"name": "TC_BRAND_02 : PUT to brand list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const body = pm.response.json();\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains expected keys\", function () {\r",
+									"    pm.expect(body).to.have.property(\"responseCode\");\r",
+									"    pm.expect(body).to.have.property(\"message\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"responseCode is 405\", function () {\r",
+									"    pm.expect(body.responseCode).to.eql(405);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response message\", function () {\r",
+									"    pm.expect(body.message).to.eql(\"This request method is not supported.\");\r",
+									"});\r",
+									"pm.test(\"Response time is under 1500ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "44",
+									"type": "text"
+								},
+								{
+									"key": "brand ",
+									"value": "nxt",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/brandsList",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"brandsList"
+							]
+						},
+						"description": "#### 🧪 TC_BRAND_02 – PUT to Brands List Rejected\n\n**Test Case ID:** TC_BRAND_02  \n**Title:** PUT to Brands List Rejected  \n**Objective:** Reject unsupported PUT method on GET-only endpoint  \n**Purpose:** Confirm method validation  \n**Method:** `PUT`  \n**Endpoint:** `https://automationexercise.com/api/brandsList`  \n**Preconditions:** API is up\n\n**📥 Test Data:**\n\n``` json\n{ \"id\": \"44\",\n\"brand\":\"nxt\" \n}\n\n ```\n\n**Test Steps:**\n\n1. Send PUT request with dummy brand\n    \n2. Observe status code\n    \n\n**Expected Result:**\n\n- Status: 405 Method Not Supported"
+					},
+					"response": []
+				}
+			],
+			"description": "Contains test cases for `/api/brandsList`.  \n  \nFocuses on brand list retrieval, handling of unsupported HTTP methods, and robustness against unexpected query parameters."
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "TC_SEARCH_01 : Search with valid term",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const body = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"responseCode is 200\", () => {\r",
+									"    pm.expect(body.responseCode).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Products array exists\", () => {\r",
+									"    pm.expect(body.products).to.be.an(\"array\").that.is.not.empty;\r",
+									"});\r",
+									"\r",
+									"// Check first product keys\r",
+									"const product = body.products[0];\r",
+									"\r",
+									"pm.test(\"Product has required fields\", () => {\r",
+									"    pm.expect(product).to.have.property(\"id\");\r",
+									"    pm.expect(product).to.have.property(\"name\");\r",
+									"    pm.expect(product).to.have.property(\"price\");\r",
+									"    pm.expect(product).to.have.property(\"brand\");\r",
+									"    pm.expect(product).to.have.property(\"category\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "search_product",
+									"value": "{{search_term}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/searchProduct",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"searchProduct"
+							]
+						},
+						"description": "#### 🧪 TC_SEARCH_01 – Search Products with Valid Term\n\n**Test Case ID:** TC_SEARCH_01  \n**Title:** Search Products with Valid Term  \n**Objective:** Return matching products for a valid search input  \n**Purpose:** Verify that the search API correctly returns relevant product matches  \n**Method:** `POST`  \n**Endpoint:** `https://automationexercise.com/api/searchProduct`  \n**Preconditions:** API is up\n\n**Request Body:**\n\n``` json\njsonCopyEdit{ \"search_product\": \"Lace Top For Women\" }\n\n ```\n\n**Test Steps:**\n\n1. Send POST request with a valid search term\n    \n2. Verify that the response contains matching products\n    \n\n**Expected Result:**\n\n- Status: 200 OK\n    \n- Response contains a list of products matching the search term"
+					},
+					"response": []
+				},
+				{
+					"name": "TC_SEARCH_03 : Search with special character",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const body = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"responseCode is 200\", () => {\r",
+									"    pm.expect(body.responseCode).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"'products' key exists and is an array\", () => {\r",
+									"    pm.expect(body).to.have.property(\"products\");\r",
+									"    pm.expect(body.products).to.be.an(\"array\");\r",
+									"});\r",
+									"\r",
+									"// Check that 'products' is empty due to invalid input\r",
+									"pm.test(\"No products returned for invalid search input\", () => {\r",
+									"    pm.expect(body.products.length).to.eql(0);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "search_product",
+									"value": "\"!@#$%",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/searchProduct",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"searchProduct"
+							]
+						},
+						"description": "#### 🧪 TC_SEARCH_03 – Search With Special Characters\n\n**Test Case ID:** TC_SEARCH_03  \n**Title:** Search With Special Characters  \n**Objective:** Ensure search handles special characters without crashing  \n**Purpose:** Validate input robustness  \n**Method:** `POST`  \n**Endpoint:** `https://automationexercise.com/api/searchProduct`  \n**Preconditions:** API is up\n\n**Request Body:**\n\n``` json\njsonCopyEdit{ \"search_product\": \"!@#$%\" }\n\n ```\n\n**Test Steps:**\n\n1. Send POST request with special characters in search term\n    \n2. Verify that API responds correctly without errors\n    \n\n**Expected Result:**\n\n- Status: 200 OK\n    \n- Response does not crash; empty or appropriate results returned"
+					},
+					"response": []
+				},
+				{
+					"name": "TC_SEARCH_04 : Search with very long term",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const body = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"responseCode is 200\", () => {\r",
+									"    pm.expect(body.responseCode).to.eql(200);\r",
+									"});\r",
+									"pm.test(\"'products' key exists and is an array\", () => {\r",
+									"    pm.expect(body).to.have.property(\"products\");\r",
+									"    pm.expect(body.products).to.be.an(\"array\");\r",
+									"});\r",
+									"pm.test(\"No products returned for very long search string\", () => {\r",
+									"    pm.expect(body.products.length).to.eql(0);\r",
+									"});\r",
+									"pm.test(\"Response time is under 1500ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "search_product",
+									"value": "\"a\"*256",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/searchProduct",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"searchProduct"
+							]
+						},
+						"description": "#### 🧪 TC_SEARCH_04 – Search With Very Long Term\n\n**Test Case ID:** TC_SEARCH_04  \n**Title:** Search With Very Long Term  \n**Objective:** Test API behavior with long search input  \n**Purpose:** Check input length validation and performance  \n**Method:** `POST`  \n**Endpoint:** `https://automationexercise.com/api/searchProduct`  \n**Preconditions:** API is up\n\n**Request Body:**\n\nStartFragment\n\n**Request Body:**\n\n``` json\njsonCopyEdit{ \"search_product\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\" }\n\n ```\n\n(_256 characters 'a'_)\n\n**Test Steps:**\n\n1. Send POST request with a very long search term\n    \n2. Observe response and check for errors or truncation\n    \n\n**Expected Result:**\n\n- Status: 200 OK\n    \n- Response returns empty list or appropriate validation error\n    \n- API should ideally limit input length (suggested improvement)"
+					},
+					"response": []
+				}
+			],
+			"description": "Covers product search functionality via `/api/searchProduct`.  \n  \nIncludes tests for valid searches, empty input, special characters, long strings, and no-match scenarios to validate API behavior and resilience."
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "TC_AUTH_01: Verify login with valid details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const body = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains expected keys\", function () {\r",
+									"    pm.expect(body).to.have.property(\"responseCode\");\r",
+									"    pm.expect(body).to.have.property(\"message\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"responseCode is 200\", function () {\r",
+									"    pm.expect(body.responseCode).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response message\", function () {\r",
+									"    pm.expect(body.message).to.eql(\"User exists!\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is under 1500ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "{{login_email}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{login_password}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/verifyLogin",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"verifyLogin"
+							]
+						},
+						"description": "#### 🧪 TC_AUTH_01 – Login With Valid Credentials\n\n**Test Case ID:** TC_AUTH_01  \n**Title:** Login With Valid Credentials  \n**Objective:** Authenticate user with valid email and password  \n**Purpose:** Verify successful login functionality  \n**Method:** `POST`  \n**Endpoint:** `https://automationexercise.com/api/verifyLogin`  \n**Preconditions:** Valid user exists\n\n**Request Body:**\n\n``` json\njsonCopyEdit{ \"email\": \"rocky1@gmail.com\",\n \"password\": \"admin123\" }\n\n ```\n\n**Test Steps:**\n\n1. Send POST request with valid credentials\n    \n2. Confirm success message and status\n    \n\n**Expected Result:**\n\n- Status: 200 OK\n    \n- Response indicates user exists and login success"
+					},
+					"response": []
+				},
+				{
+					"name": "TC_AUTH_02 : Verify Login with invalid details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const body = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains expected keys\", function () {\r",
+									"    pm.expect(body).to.have.property(\"responseCode\");\r",
+									"    pm.expect(body).to.have.property(\"message\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"responseCode is 404\", function () {\r",
+									"    pm.expect(body.responseCode).to.eql(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response message\", function () {\r",
+									"    pm.expect(body.message).to.eql(\"User not found!\");\r",
+									"});\r",
+									"pm.test(\"Response time is under 1500ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "{{valid_email}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{invalid_password}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/verifyLogin",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"verifyLogin"
+							]
+						},
+						"description": "#### 🧪 TC_AUTH_02 – Login With Invalid Credentials\n\n**Test Case ID:** TC_AUTH_02  \n**Title:** Login With Invalid Credentials  \n**Objective:** Reject login with incorrect password  \n**Purpose:** Verify authentication failure handling  \n**Method:** `POST`  \n**Endpoint:** `https://automationexercise.com/api/verifyLogin`  \n**Preconditions:** User exists\n\n**Request Body:**\n\n``` json\njsonCopyEdit{ \"email\": \"rocky1@gmail.com\", \"password\": \"admin\" }\n\n ```\n\n**Test Steps:**\n\n1. Send POST request with invalid password\n    \n2. Check failure message\n    \n\n**Expected Result:**\n\n- Status: 404 Not Found or equivalent\n    \n- Response indicates user not found or authentication failure"
+					},
+					"response": []
+				},
+				{
+					"name": "TC_AUTH_06: Login with invalid email format",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const body = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains expected keys\", function () {\r",
+									"    pm.expect(body).to.have.property(\"responseCode\");\r",
+									"    pm.expect(body).to.have.property(\"message\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"responseCode is 400\", function () {\r",
+									"    pm.expect(body.responseCode).to.eql(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response message\", function () {\r",
+									"    pm.expect(body.message).to.eql(\"Bad Request!\");\r",
+									"});\r",
+									"pm.test(\"Response time is under 1500ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "rocky1",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/verifyLogin",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"verifyLogin"
+							]
+						},
+						"description": "StartFragment\n\n#### 🧪 TC_AUTH_06 – Login With Invalid Email Format\n\n**Test Case ID:** TC_AUTH_06  \n**Title:** Login With Invalid Email Format  \n**Objective:** Validate email format during login  \n**Purpose:** Ensure email format validation on login API  \n**Method:** `POST`  \n**Endpoint:** `https://automationexercise.com/api/verifyLogin`  \n**Preconditions:** API is up\n\n**Request Body:**\n\n``` json\njsonCopyEdit{ \"email\": \"rocky1\", \"password\": \"12345\" }\n\n ```\n\n**Test Steps:**\n\n1. Send POST request with invalid email format\n    \n2. Observe response code and message\n    \n\n**Expected Result:**\n\n- Status: 400 Bad Request (expected)\n    \n- Actual: 404 Not Found (bug)\n    \n- Note: API incorrectly treats invalid email format as user not found; validation logic issue\n    \n\nEndFragment"
+					},
+					"response": []
+				}
+			],
+			"description": "Tests for `/api/verifyLogin` endpoint.  \n  \nValidates login scenarios using valid and invalid credentials, malformed email formats, missing fields, and unsupported HTTP methods."
+		},
+		{
+			"name": "User Account",
+			"item": [
+				{
+					"name": "TC_USER_01 : Register new user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const body = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains expected keys\", function () {\r",
+									"    pm.expect(body).to.have.property(\"responseCode\");\r",
+									"    pm.expect(body).to.have.property(\"message\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"responseCode is 201\", function () {\r",
+									"    pm.expect(body.responseCode).to.eql(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response message\", function () {\r",
+									"    pm.expect(body.message).to.eql(\"User created!\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is under 1500ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Tom Plank",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "{{email(USER)}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password(USER)}}",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Mr.",
+									"type": "text"
+								},
+								{
+									"key": "birth_date",
+									"value": "22",
+									"type": "text"
+								},
+								{
+									"key": "birth_month",
+									"value": "08",
+									"type": "text"
+								},
+								{
+									"key": "birth_year",
+									"value": "1999",
+									"type": "text"
+								},
+								{
+									"key": "firstname",
+									"value": "Tom",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "Plank",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "xyzcommerce",
+									"type": "text"
+								},
+								{
+									"key": "address1",
+									"value": "1500 Marilla St, Dallas, TX 75201",
+									"type": "text"
+								},
+								{
+									"key": "address2",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "United States of America",
+									"type": "text"
+								},
+								{
+									"key": "zipcode",
+									"value": "75001",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "Dallas",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Garland",
+									"type": "text"
+								},
+								{
+									"key": "mobile_number",
+									"value": "7764596363",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}api/createAccount",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"createAccount"
+							]
+						},
+						"description": "StartFragment\n\n#### 🧪 TC_USER_01 – Register New User Successfully\n\n**Test Case ID:** TC_USER_01  \n**Title:** Register New User Successfully  \n**Objective:** Create a new user account with valid details  \n**Purpose:** Verify successful user registration functionality  \n**Method:** `POST`  \n**Endpoint:** `https://automationexercise.com/api/createAccount`  \n**Preconditions:** Email is unused\n\n**Request Body:**\n\n``` json\njsonCopyEdit{ \n  \"name\": \"Tom Plank\", \n  \"email\": \"tomplank@gmail.com\", \n  \"password\": \"tom1234\" \n}\n\n ```\n\n**Test Steps:**\n\n1. Send POST request with valid user data\n    \n2. Confirm success response\n    \n\n**Expected Result:**\n\n- Status: 200 OK\n    \n- Response message: \"User created\"\n    \n\nEndFragment"
+					},
+					"response": []
+				},
+				{
+					"name": "TC_USER_02 : Register with registered user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const body = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains expected keys\", function () {\r",
+									"    pm.expect(body).to.have.property(\"responseCode\");\r",
+									"    pm.expect(body).to.have.property(\"message\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"responseCode is 400\", function () {\r",
+									"    pm.expect(body.responseCode).to.eql(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response message\", function () {\r",
+									"    pm.expect(body.message).to.eql(\"Email already exists!\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "John Plaz",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "{{email(USER)}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password(USER)}}",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Mr.",
+									"type": "text"
+								},
+								{
+									"key": "birth_date",
+									"value": "22",
+									"type": "text"
+								},
+								{
+									"key": "birth_month",
+									"value": "08",
+									"type": "text"
+								},
+								{
+									"key": "birth_year",
+									"value": "1999",
+									"type": "text"
+								},
+								{
+									"key": "firstname",
+									"value": "Tom",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "Plank",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "xyzcommerce",
+									"type": "text"
+								},
+								{
+									"key": "address1",
+									"value": "1500 Marilla St, Dallas, TX 75201",
+									"type": "text"
+								},
+								{
+									"key": "address2",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "United States of America",
+									"type": "text"
+								},
+								{
+									"key": "zipcode",
+									"value": "75001",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "Dallas",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Garland",
+									"type": "text"
+								},
+								{
+									"key": "mobile_number",
+									"value": "7764596363",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/createAccount",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"createAccount"
+							]
+						},
+						"description": "StartFragment\n\n#### 🧪 TC_USER_02 – Duplicate User Registration Rejected\n\n**Test Case ID:** TC_USER_02  \n**Title:** Duplicate User Registration Rejected  \n**Objective:** Prevent registration with an email already in use  \n**Purpose:** Validate unique email constraint for registration  \n**Method:** `POST`  \n**Endpoint:** `https://automationexercise.com/api/createAccount`  \n**Preconditions:** Email already exists\n\n**Request Body:**\n\n``` json\njsonCopyEdit{ \"email\": \"tomplank@gmail.com\" }\n\n ```\n\n**Test Steps:**\n\n1. Send POST request with duplicate email\n    \n2. Verify error response\n    \n\n**Expected Result:**\n\n- Status: 400 Bad Request\n    \n- Response message: \"User already exist\"\n    \n\nEndFragment"
+					},
+					"response": []
+				},
+				{
+					"name": "TC_USER_04 : Delete existed user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const body = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Response contains expected keys\", () => {\r",
+									"    pm.expect(body).to.have.property(\"responseCode\");\r",
+									"    pm.expect(body).to.have.property(\"message\");\r",
+									"});\r",
+									"pm.test(\"responseCode is 200\", function () {\r",
+									"    pm.expect(body.responseCode).to.eql(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response message\", function () {\r",
+									"    pm.expect(body.message).to.eql(\"Account deleted!\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is under 1500ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "{{email(USER)}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password(USER)}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/deleteAccount",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"deleteAccount"
+							]
+						},
+						"description": "#### 🧪 TC_USER_04 – Delete User Account\n\n**Test Case ID:** TC_USER_04  \n**Title:** Delete User Account  \n**Objective:** Successfully delete an existing user account  \n**Purpose:** Verify user deletion endpoint functionality  \n**Method:** `DELETE`  \n**Endpoint:** `https://automationexercise.com/api/deleteAccount`  \n**Preconditions:** User account exists\n\n**Request Body:**\n\n```\njsonCopyEdit{ \n  \"email\": \"tomplank@gmail.com\", \n  \"password\": \"tom1234\" \n}\n\n ```\n\n**Test Steps:**\n\n1. Send DELETE request with valid credentials\n    \n2. Confirm success response\n    \n\n**Expected Result:**\n\n- Status: 204 No Content\n    \n- User is deleted successfully"
+					},
+					"response": []
+				},
+				{
+					"name": "TC_USER_05 : Register with invalid email format",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const body = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains expected keys\", function () {\r",
+									"    pm.expect(body).to.have.property(\"responseCode\");\r",
+									"    pm.expect(body).to.have.property(\"message\");\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"pm.test(\"responseCode is 400\", function () {\r",
+									"    pm.expect(body.responseCode).to.eql(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check response message\", function () {\r",
+									"    pm.expect(body.message).to.eql(\"Invalid Email Format!\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is under 1500ms\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Levi Ackerman",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "leviceker1",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "aotlevffi12",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Mr.",
+									"type": "text"
+								},
+								{
+									"key": "birth_date",
+									"value": "28",
+									"type": "text"
+								},
+								{
+									"key": "birth_month",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "birth_year",
+									"value": "2003",
+									"type": "text"
+								},
+								{
+									"key": "firstname",
+									"value": "Levi",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "Ackerman",
+									"type": "text"
+								},
+								{
+									"key": "company",
+									"value": "aottitans",
+									"type": "text"
+								},
+								{
+									"key": "address1",
+									"value": "200 safewall aot universe , TX 75201",
+									"type": "text"
+								},
+								{
+									"key": "address2",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "country",
+									"value": "Japan",
+									"type": "text"
+								},
+								{
+									"key": "zipcode",
+									"value": "3500146",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "kanto",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "tokyo",
+									"type": "text"
+								},
+								{
+									"key": "mobile_number",
+									"value": "755556363",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/api/createAccount",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"createAccount"
+							]
+						},
+						"description": "#### 🧪 TC_USER_05 – Register With Invalid Email Format\n\n**Test Case ID:** TC_USER_05  \n**Title:** Register With Invalid Email Format  \n**Objective:** Reject registration attempts with improperly formatted emails  \n**Purpose:** Validate email format on registration endpoint  \n**Method:** `POST`  \n**Endpoint:** `https://automationexercise.com/api/createAccount`  \n**Preconditions:** API is up\n\n**Request Body:**\n\n``` json\njsonCopyEdit{ \"email\": \"leviceke1@\" }\n\n ```\n\n**Test Steps:**\n\n1. Send POST request with invalid email format\n    \n2. Verify error response\n    \n\n**Expected Result:**\n\n- Status: 400 Bad Request (expected)\n    \n- Actual (bug): 201 Created (indicates missing validation)"
+					},
+					"response": []
+				}
+			],
+			"description": "Includes test cases for user account actions such as registration, update, deletion, and detail fetching.  \n  \nValidates input handling, duplicate prevention, invalid formats, and exploratory edge cases."
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
