@@ -33,7 +33,7 @@ The purpose of this project is to demonstrate Quality Assurance skills and build
 ## Feedback & Contributions
 
 I welcome any feedback, suggestions, or collaboration to help improve this project!  
-Feel free to open issues or submit pull requests if you find bugs or have ideas.  
+Feel free to submit pull requests if you find bugs or have ideas.  
 
 Your input helps me grow and make this portfolio even better!
 
