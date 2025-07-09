@@ -25,6 +25,14 @@ I tested the following flows manually:
 - Checkout and Payment form
 - Contact Us and Newsletter Subscription
 - Account deletion and logout
+  
+ User Context and Roles
+ In this project, the following testing approach is used regarding user roles:
+  - Browsing, searching, and viewing product details behave identically for both guest and logged-in users.
+  - Therefore, test cases for these functionalities are designed to be executed once, regardless of user login status.
+  - User login is only required and tested explicitly for checkout, cart management, and other account-specific flows where behavior differs based on user 
+   authentication.
+  - This strategy helps avoid redundant testing while ensuring critical user-specific features are properly validated.
 
 ---
 
