@@ -1,0 +1,31 @@
+🚀 Week 3 QA Portfolio Update – My First Steps in Cypress UI Automation!
+
+After completing manual UI testing and API automation (Postman + Newman), I finally stepped into the world of frontend test automation with Cypress — and I’m loving it!
+
+🎯 What I automated this week:
+✅ Basic UI test cases like Signup, Login
+✅ Cypress setup with organized folder structure
+✅ CLI test run with green “✓” results
+✅ Pushed code to GitHub with a clear README
+
+🧠 Key Learnings:
+
+Locating elements with .get() and using .should() for assertions
+
+Importance of reusable test structure (describe, beforeEach)
+
+Cypress makes UI test feedback instant and visual
+
+📸 [Attached: Screenshot of Cypress UI test runner or CLI output]
+
+🔗 GitHub: [Insert your GitHub repo link]
+
+🔜 What’s next:
+Automating more flows like Add to Cart, Checkout, and combining API + UI validations
+
+🚀 My goal is a complete QA portfolio from manual → automation → CI/CD
+
+Curious: What helped you feel confident in Cypress early on?
+
+#QA #Cypress #AutomationTesting #SoftwareTesting #LearningInPublic #GitHubPortfolio #CareerSwitch #100DaysOfQA
+

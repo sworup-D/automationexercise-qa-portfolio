@@ -1,0 +1,35 @@
+{
+  "valid": {
+    "name": "Rohan Karki",
+    "email": "rocky1@gmail.com",
+    "password": "admin123",
+    "title": "Mr",
+    "dob": { "day": "11", "month": "November", "year": "2002" },
+    "firstname": "Rohan",
+    "lastname": "Karki",
+    "company": "A-Z blue",
+    "address1": "PO BOX 70206 LOS ANGELES CA 90074-0206 USA",
+    "address2": "5200 CANTERBURY DR CYPRESS CA 90630-3738 USA",
+    "country": "United States",
+    "state": "California",
+    "city": "San Fransisco",
+    "zipcode": "94102",
+    "mobile": "+1 212 555 4567"
+  },
+  "alreadyRegisteredEmail": "rocky1@gmail.com",
+  "invalidEmail": "rocky1gmail.com",
+  "validLogin": {
+    "email": "rocky1@gmail.com",
+    "password": "admin123"
+  },
+  "invalidLogin": {
+    "email": "rocky12@gmail.com",
+    "password": "admin123"
+  },
+  "invalidPassword": {
+    "email": "rocky1@gmail.com",
+    "password": "wrongpass"
+  },
+  "uppercaseEmail": "ROCKY1@GMAIL.COM",
+  "sqlInjectionEmail": "' OR 1=1 --"
+  }
