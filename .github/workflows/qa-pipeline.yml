@@ -21,30 +21,23 @@ jobs:
         with:
           node-version: 22.16.0
 
-      # 3️⃣ Cache node_modules for nested folder
-      - name: Cache Node modules
-        uses: actions/cache@v3
-        with:
-          path: ui/automation/node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('ui/automation/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      # 4️⃣ Install dependencies
-      - name: Install Cypress dependencies
-        run: npm install
+      # 3️⃣ Install Cypress dependencies
+      - name: Install Cypress
+        run: |
+          npm ci
+          npx cypress install
         working-directory: ui/automation
 
-      # 5️⃣ Run Cypress Tests using npx
+      # 4️⃣ Run Cypress tests
       - name: Run Cypress Tests
         run: npx cypress run --browser electron --record false
         working-directory: ui/automation
 
-      # 6️⃣ Install Newman globally
+      # 5️⃣ Install Newman globally
       - name: Install Newman
         run: npm install -g newman@6.2.1
 
-      # 7️⃣ Run Postman API Tests
+      # 6️⃣ Run Postman API tests
       - name: Run Postman API Tests
         run: |
           newman run ./api/automation/AutomationExerciseAPITestSuite.postman_collection \
