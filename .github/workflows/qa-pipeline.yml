@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout the repo
+      # 1️⃣ Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -20,23 +20,28 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 22.16.0
-          
 
-      # 3️⃣ Install Cypress dependencies
+      # 3️⃣ Debug Node & npm versions
+      - name: Check Node & npm
+        run: |
+          node -v
+          npm -v
+
+      # 4️⃣ Install Cypress dependencies
       - name: Install Cypress dependencies
         run: npm install
         working-directory: ui/automation
 
-      # 4️⃣ Run Cypress Tests using npx
+      # 5️⃣ Run Cypress Tests using npx
       - name: Run Cypress Tests
         run: npx cypress run --browser electron --record false
         working-directory: ui/automation
 
-      # 5️⃣ Install Newman globally
+      # 6️⃣ Install Newman globally
       - name: Install Newman
         run: npm install -g newman@6.2.1
 
-      # 6️⃣ Run Postman API Tests
+      # 7️⃣ Run Postman API Tests
       - name: Run Postman API Tests
         run: |
           newman run ./api/automation/AutomationExerciseAPITestSuite.postman_collection \
