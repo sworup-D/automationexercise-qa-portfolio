@@ -11,18 +11,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 22.16.0
           cache: 'npm'
 
-      - name: Install dependencies
+      #
+      - name: Install Cypress dependencies
         run: npm install
+        working-directory: ui/automation
 
+      
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v5
         with:
@@ -32,9 +37,11 @@ jobs:
           record: false
           group: "Cypress Tests"
 
+      
       - name: Install Newman
         run: npm install -g newman@6.2.1
 
+      
       - name: Run Postman API Tests
         run: |
           newman run ./api/automation/AutomationExerciseAPITestSuite.postman_collection \
