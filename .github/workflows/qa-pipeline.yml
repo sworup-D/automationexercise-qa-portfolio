@@ -26,6 +26,7 @@ jobs:
       - name: Run Cypress Tests
         uses: cypress-io/github-action@v5
         with:
+          working-directory: ui/automation
           version: 13.7.3
           browser: electron
           record: false
@@ -36,7 +37,7 @@ jobs:
 
       - name: Run Postman API Tests
         run: |
-          newman run ./api/automation/AutomationExerciseAPITest Suite.postman_collection \
-          --environment ./api/automation/AutomationExerciseAPI Env.postman_environment \
+          newman run ./api/automation/AutomationExerciseAPITestSuite.postman_collection \
+          --environment ./api/automation/AutomationExerciseAPIEnv.postman_environment \
           --reporters cli,junit \
           --reporter-junit-export newman-results.xml
