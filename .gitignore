@@ -9,6 +9,10 @@ api/automation/*.html
 # Ignore Node.js dependencies (if any)
 node_modules/
 
+cypress/videos/
+cypress/screenshots/
+.env
+
 # OS junk files
 .DS_Store
 Thumbs.db
