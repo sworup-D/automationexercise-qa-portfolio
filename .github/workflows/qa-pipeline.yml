@@ -7,22 +7,22 @@ on:
     branches: [ main ]
 
 jobs:
-  # 🟢 Cypress UI Tests Job
+  # 🟢 Cypress UI Tests
   cypress-tests:
     runs-on: ubuntu-latest
     steps:
-      # 1️⃣ Checkout repository
+      # Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ Setup Node.js
+      # Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 22.16.0
 
-      # 3️⃣ Cache Node modules for faster CI
-      - name: Cache node modules
+      # Cache Node modules
+      - name: Cache Node modules
         uses: actions/cache@v3
         with:
           path: ui/automation/node_modules
@@ -30,19 +30,19 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      # 4️⃣ Install Cypress dependencies
-      - name: Install Cypress
+      # Install dependencies & Cypress
+      - name: Install Cypress dependencies
         run: |
           npm ci
           npx cypress install
         working-directory: ui/automation
 
-      # 5️⃣ Run Cypress Tests
+      # Run Cypress tests
       - name: Run Cypress Tests
         run: npx cypress run --browser electron --record false
         working-directory: ui/automation
 
-      # 6️⃣ Upload Cypress screenshots/videos (optional)
+      # Upload Cypress artifacts (screenshots + videos)
       - name: Upload Cypress Artifacts
         if: always()
         uses: actions/upload-artifact@v3
@@ -52,35 +52,36 @@ jobs:
             ui/automation/cypress/screenshots
             ui/automation/cypress/videos
 
-  # 🔵 Postman API Tests Job
+  # 🔵 Postman API Tests
   postman-tests:
     runs-on: ubuntu-latest
     needs: cypress-tests   # remove this line if you want parallel execution
     steps:
-      # 1️⃣ Checkout repository
+      # Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ Setup Node.js
+      # Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 22.16.0
 
-      # 3️⃣ Install Newman
+      # Install Newman locally
       - name: Install Newman
         run: npm install newman@6.2.1
         working-directory: api/automation
 
-      # 4️⃣ Run Postman API Tests
+      # Run Postman API tests
       - name: Run Postman API Tests
         run: |
           npx newman run AutomationExerciseAPITestSuite.postman_collection \
           --environment AutomationExerciseAPIEnv.postman_environment \
           --reporters cli,junit \
           --reporter-junit-export newman-results.xml
+        working-directory: api/automation
 
-      # 5️⃣ Upload Newman report
+      # Upload Newman report
       - name: Upload Newman JUnit Report
         if: always()
         uses: actions/upload-artifact@v3
