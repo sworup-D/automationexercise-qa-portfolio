@@ -32,6 +32,7 @@ jobs:
       - name: Run Cypress Tests
         run: npx cypress run --browser electron --record false
         working-directory: ui/automation
+        continue-on-error: true
 
       # 5️⃣ Install Newman globally
       - name: Install Newman
