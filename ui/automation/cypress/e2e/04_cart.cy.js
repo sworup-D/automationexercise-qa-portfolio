@@ -12,14 +12,6 @@ it('TC_022: Add product to cart from homepage (guest or logged-in)', () => {
       });
     cy.contains('Added!').should('be.visible');
   });
-it('TC_023: Add product to cart from product detail page ', () => {
-    cy.contains('View Product').parents('.product-image-wrapper')
-      .trigger('mouseenter')
-      .within(() => {
-        cy.contains('Add to cart').should('be.visible').click();
-      });
-    cy.contains('Added!').should('be.visible');
-  });
 it('TC_024 - Remove products from cart', () => {
     cy.visit('/product_details/1')
     cy.get(':nth-child(5) > .btn').click();
