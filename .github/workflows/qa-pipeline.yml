@@ -48,7 +48,7 @@ jobs:
       - name: Run Postman API Tests
         working-directory: api/automation
         run: |
-          npx newman run ./AutomationExerciseAPITestSuite.postman_collection \
-          --environment ./AutomationExerciseAPIEnv.postman_environment \
+          npx newman run ./AutomationExerciseAPITestSuite.postman_collection.json \
+          --environment ./AutomationExerciseAPIEnv.postman_environment.json \
           --reporters cli,junit \
           --reporter-junit-export newman-results.xml
