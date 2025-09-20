@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout the repository
+      # 1️⃣ Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -21,13 +21,16 @@ jobs:
         with:
           node-version: 22.16.0
 
-      # 3️⃣ Debug Node & npm versions
-      - name: Check Node & npm
-        run: |
-          node -v
-          npm -v
+      # 3️⃣ Cache node_modules for nested folder
+      - name: Cache Node modules
+        uses: actions/cache@v3
+        with:
+          path: ui/automation/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('ui/automation/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-      # 4️⃣ Install Cypress dependencies
+      # 4️⃣ Install dependencies
       - name: Install Cypress dependencies
         run: npm install
         working-directory: ui/automation
