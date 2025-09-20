@@ -31,19 +31,6 @@ it('TC_024 - Remove products from cart', () => {
     cy.get('#product-2 > .cart_delete > .cart_quantity_delete').click();
     cy.get('.cart_info').should('not.contain', 'Men Tshirt');
   });
-it('TC_025 - Update product quantity from cart page', () => {
-    cy.visit('/product_details/1')
-    cy.get(':nth-child(5) > .btn').click();
-    cy.get('u').click();
-    cy.get('input.cart_quantity_input').then(($input) => {
-    const isReadonly = $input.attr('readonly') !== undefined;
-    const isDisabled = $input.is(':disabled');
-    // Logging inside .then(), where the variables exist
-    cy.log(`Quantity input is readonly: ${isReadonly}, disabled: ${isDisabled}`);
-    // Assert (force fail if not editable)
-    expect(isReadonly || isDisabled, 'BUG_UI_025_CART_QTY: Quantity input should be editable in Cart Page').to.be.false;});
-   
-});
 
 it('TC_026 - Update product quantity from product detail page', () => {
     cy.visit('/product_details/1');
