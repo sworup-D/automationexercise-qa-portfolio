@@ -1,0 +1,42 @@
+name: QA Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.16.0
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress Tests
+        uses: cypress-io/github-action@v5
+        with:
+          version: 13.7.3
+          browser: electron
+          record: false
+          group: "Cypress Tests"
+
+      - name: Install Newman
+        run: npm install -g newman@6.2.1
+
+      - name: Run Postman API Tests
+        run: |
+          newman run ./api/automation/AutomationExerciseAPITest Suite.postman_collection \
+          --environment ./api/automation/AutomationExerciseAPI Env.postman_environment \
+          --reporters cli,junit \
+          --reporter-junit-export newman-results.xml
