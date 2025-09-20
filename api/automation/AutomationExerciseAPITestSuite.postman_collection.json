@@ -1252,14 +1252,6 @@
 						"description": "#### 🧪 TC_USER_05 – Register With Invalid Email Format\n\n**Test Case ID:** TC_USER_05  \n**Title:** Register With Invalid Email Format  \n**Objective:** Reject registration attempts with improperly formatted emails  \n**Purpose:** Validate email format on registration endpoint  \n**Method:** `POST`  \n**Endpoint:** `https://automationexercise.com/api/createAccount`  \n**Preconditions:** API is up\n\n**Request Body:**\n\n``` json\njsonCopyEdit{ \"email\": \"leviceke1@\" }\n\n ```\n\n**Test Steps:**\n\n1. Send POST request with invalid email format\n    \n2. Verify error response\n    \n\n**Expected Result:**\n\n- Status: 400 Bad Request (expected)\n    \n- Actual (bug): 201 Created (indicates missing validation)"
 					},
 					"response": []
-				},
-				{
-					"name": "New Request",
-					"request": {
-						"method": "GET",
-						"header": []
-					},
-					"response": []
 				}
 			],
 			"description": "Includes test cases for user account actions such as registration, update, deletion, and detail fetching.  \n  \nValidates input handling, duplicate prevention, invalid formats, and exploratory edge cases."
