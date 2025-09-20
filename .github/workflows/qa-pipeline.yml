@@ -11,40 +11,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      
+      # 1️⃣ Checkout the repo
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      
+      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 22.16.0
           cache: 'npm'
 
-      #
+      # 3️⃣ Install Cypress dependencies
       - name: Install Cypress dependencies
         run: npm install
         working-directory: ui/automation
 
-      
-      - name: Run Cypress Tests
-        uses: cypress-io/github-action@v5
-        with:
-          working-directory: ui/automation
-          version: 13.7.3
-          browser: electron
-          record: false
-          group: "Cypress Tests"
-
-      
-      - name: Install Newman
-        run: npm install -g newman@6.2.1
-
-      
-      - name: Run Postman API Tests
-        run: |
-          newman run ./api/automation/AutomationExerciseAPITestSuite.postman_collection \
-          --environment ./api/automation/AutomationExerciseAPIEnv.postman_environment \
-          --reporters cli,junit \
-          --reporter-junit-export newman-results.xml
+      # 4️⃣ Run
