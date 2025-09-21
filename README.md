@@ -6,8 +6,8 @@
 ![QA Pipeline](https://github.com/sworup-D/AutomationExercise-QA-Portfolio/actions/workflows/qa-pipeline.yml/badge.svg?branch=main)
 
 <!-- Individual jobs in the QA Pipeline (ensure job IDs match your YAML) -->
-![Cypress UI Tests](https://github.com/sworup-D/AutomationExercise-QA-Portfolio/actions/workflows/qa-pipeline.yml/badge.svg?branch=main&job=test-ui)
-![Postman API Tests](https://github.com/sworup-D/AutomationExercise-QA-Portfolio/actions/workflows/qa-pipeline.yml/badge.svg?branch=main&job=test-api)
+![Cypress UI Tests](https://github.com/sworup-D/AutomationExercise-QA-Portfolio/actions/workflows/qa-pipeline.yml/badge.svg?branch=main&job=cypress-tests)
+![Postman API Tests](https://github.com/sworup-D/AutomationExercise-QA-Portfolio/actions/workflows/qa-pipeline.yml/badge.svg?branch=main&job=postman-tests)
 
 ## ⚙️ Project Versions
 
@@ -21,34 +21,22 @@ A complete **QA portfolio project** base on the [AutomationExercise](https://aut
 
 ---
 
-## 📝 Project Versions
+📂 **Project Structure**
 
-| Tool/Framework | Version     |
-|----------------|------------|
-| Node.js        | 22.16.0    |
-| npm            | 10.9.2     |
-| Cypress        | 13.7.3     |
-| Newman         | 6.2.1      |
-| Postman        |(collection v2.0.0) |
-
----
-
-## 📂 Project Structure  
 AutomationExercise-QA-Portfolio/
 │
-├── api/
-│ ├── manual/ # API manual test cases (Excel/Markdown), bug reports
-│ └── automation/ # Postman collection, Newman CLI, reports
+├── **api/**
+│   ├── **manual/**        # API manual test cases (Excel/Markdown), bug reports
+│   └── **automation/**    # Postman collection, Newman CLI, reports
 │
-├── ui/
-│ ├── manual/ # UI manual test cases (Excel/Markdown), bug reports
-│ └── automation/ # Cypress scripts, fixtures, reports
+├── **ui/**
+│   ├── **manual/**        # UI manual test cases (Excel/Markdown), bug reports
+│   └── **automation/**    # Cypress scripts, fixtures, reports
 │
-├── docs/ # Test plan, summary,srtrategy
-├── .github/workflows/ # GitHub Actions CI/CD pipelines
-├── .gitignore # Ignore node_modules, reports, env files
-└── README.md # Main documentation
-
+├── **docs/**              # Test plan, summary, strategy
+├── **.github/workflows/** # GitHub Actions CI/CD pipelines
+├── **.gitignore**         # Ignore node_modules, reports, env files
+└── **README.md**          # Main documentation
 
 ---
 
@@ -150,7 +138,8 @@ Your input helps me grow and make this portfolio even better!
 👨‍💻 Author
 
 Sworup Dhungana
-📧 [sworupdhungana963@gmail.com] | 🌐 https://www.linkedin.com/in/sworup-dhungana-943075317/ | GitHub https://github.com/sworup-D
+📧 [sworupdhungana963@gmail.com](mailto:sworupdhungana963@gmail.com) | 🌐 [LinkedIn](https://www.linkedin.com/in/sworup-dhungana-943075317/) | [GitHub](https://github.com/sworup-D)
+
 
 
 
