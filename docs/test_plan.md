@@ -1,88 +1,103 @@
-# QA Project Test Plan
+# 🧪 QA Portfolio Project – Test Plan
 
 ---
 
 ## 1. Project Overview
 
-- **Project Name:** QA Portfolio Project  
-- **Project Description:**  
-  A sample project to demonstrate manual and automation testing for UI and API using Cypress, Postman, and Excel test cases.  
-- **Test Objectives:**  
-  Ensure functional correctness, reliability, and usability of the application’s UI and APIs.
+**Project Name:** QA Portfolio Project  
+
+**Description:**  
+A comprehensive project demonstrating manual and automation testing for UI and API using Cypress, Postman, and Excel test cases.  
+
+**Test Objectives:**  
+- Ensure all critical UI flows work as expected (Signup, Login, Checkout, Account Management).  
+- Verify API endpoints respond correctly with valid status codes, payloads, and error handling.  
+- Demonstrate professional QA skills, including manual, automation, and CI/CD testing.  
 
 ---
 
-## 2. Scope
+## 2. Test Strategy
 
-- **In Scope:**  
-  - Manual UI testing (signup, login, checkout, account management)  
-  - Manual API testing (product listing, user creation, authentication APIs)  
-  - Automation testing for UI using Cypress  
-  - Automation testing for API using Postman collections
-
-- **Out of Scope:**  
-  - Performance testing  
-  - Security testing  
-  - Mobile app testing (if applicable)
+- **Manual Testing:** Execute test cases using Excel/Markdown. Capture screenshots and log bugs in Markdown files.
+- **UI Automation:** Use Cypress to automate critical user flows. Include fixtures, custom commands, and reports.
+- **API Automation:** Use Postman collections executed via Newman CLI. Verify positive, negative, edge, and validation scenarios.
+- **CI/CD Integration:** Run automated tests on GitHub Actions for every push/PR to the main branch.
+- **Reporting:** Maintain bug reports, test case status, and final summary report.
 
 ---
 
-## 3. Testing Types and Levels
+## 3. Scope
 
-| Type           | Description                      | Tools           |
-|----------------|----------------------------------|-----------------|
-| Manual Testing | Execute test cases by hand       | Excel, Markdown |
-| UI Automation  | Automated browser UI testing     | Cypress         |
-| API Automation | Automated API testing            | Postman         |
+**In Scope:**  
+- Manual UI testing for core workflows  
+- Manual API testing for key endpoints  
+- Automation testing: UI (Cypress) and API (Postman + Newman)  
+- Bug reporting and documentation  
 
----
-
-## 4. Test Environment
-
-- **Test Environments:**  
-  - Development server: `https://automationexercise.com`  
-  - Local machine for test execution  
-- **Browsers:**  
-  - Chrome (latest version)  
-- **Tools:**  
-  - Cypress (for UI automation)  
-  - Postman (for API automation)
+**Out of Scope:**  
+- Performance testing  
+- Security testing  
+- Mobile app testing  
+- Third-party integration testing  
 
 ---
 
-## 5. Test Deliverables
+## 4. Testing Types and Tools
 
-- Manual test cases (Excel files for UI and API)  
-- Bug reports (Markdown files)  
-- Automation test scripts (Cypress and Postman collections)  
-- Test summary report (`test-summary.md`)  
-- CI/CD configuration (`.github/workflows/cypress.yml`)
-
----
-
-## 6. Testing Schedule
-
-| Phase                | Start Date  | End Date    | Notes                    |
-|----------------------|-------------|-------------|--------------------------|
-| Test Plan Creation   | 2025-06-14  | 2025-06-14  | Initial planning         |
-| Manual Testing       | 2025-06-15  | 2025-06-24  | Execute manual test cases|
-| Automation Testing   | 2025-06-25  | TBD         | Develop & run automation |
-| Reporting & Closure  | TBD         | TBD         |     final reports        |
+| Type             | Description                     | Tools/Frameworks           |
+|-----------------|---------------------------------|----------------------------|
+| Manual Testing   | Execute test cases manually      | Excel, Markdown            |
+| UI Automation    | Automated browser UI testing     | Cypress (v13.7.3)         |
+| API Automation   | Automated API testing            | Postman (v2.0.0), Newman (v6.2.1) |
 
 ---
 
-## 7. Risks and Mitigations
+## 5. Test Environment
 
-| Risk                         | Mitigation                            |
-|------------------------------|---------------------------------------|
-| Delays in environment setup  | Use stable test environment early     |
-| Incomplete requirements      | Clarify requirements before testing   |
-| Test data issues             | Prepare reusable test data sets       |
+- **Application URL:** `https://automationexercise.com`  
+- **Execution Platforms:** Local machine, GitHub Actions CI  
+- **Browsers:** Chrome (latest version)  
+- **Tools & Versions:**  
+  - Node.js: 22.16.0  
+  - npm: 10.9.2  
+  - Cypress: 13.7.3  
+  - Postman/Newman: 6.2.1  
 
 ---
 
-## 8. Approval
+## 6. Test Deliverables
 
-- **Prepared by:** Sworup Dhungana 
-- **Reviewed by:** Self-Lead 
+- **Manual Test Cases:** Excel/Markdown files for UI and API  
+- **Bug Reports:** Markdown files categorized by UI/API  
+- **Automation Scripts:** Cypress UI tests, Postman collections for API  
+- **Test Summary Report:** `test-summary.md`  
+- **CI/CD Configurations:** GitHub Actions workflow (`.github/workflows/qa-pipeline.yml`)  
+
+---
+
+## 7. Testing Schedule
+
+| Phase               | Start Date  | End Date  |             Description             |
+|---------------------|------------|------------|-------------------------------------|
+| Test Plan Creation  | 2025-06-14 | 2025-06-14 | Planning & documentation            |
+| Manual Testing      | 2025-06-15 | 2025-06-24 | Execute manual test cases           |
+| Automation Testing  | 2025-06-25 | 2025-07-20 | Develop and run UI & API automation |
+| Reporting & Closure | 2025-07-21 | 2025-07-25 | Compile final reports and summaries |
+
+---
+
+## 8. Risks and Mitigation
+
+| Risk                        | Mitigation                          |
+|-----------------------------|-------------------------------------|
+| Delays in environment setup | Use stable test environment early   |
+| Incomplete requirements     | Clarify requirements before testing|
+| Test data issues            | Prepare reusable and valid test data sets |
+
+---
+
+## 9. Approval
+
+- **Prepared by:** Sworup Dhungana  
+- **Reviewed by:** Self-Lead / Portfolio Mentor  
 - **Date:** 2025-06-14

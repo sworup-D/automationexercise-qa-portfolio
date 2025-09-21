@@ -9,8 +9,8 @@
 | Test Plan Creation  | 2025-06-14  | 2025-06-14  | ✅ Completed |
 | Manual UI Testing   | 2025-06-15  | 2025-06-20  | ✅ Completed |
 | Manual API Testing  | 2025-06-21  | 2025-06-24  | ✅ Completed |
-| Automation Testing  | 2025-06-25  | TBD         | 🚧 In Progress |
-| Reporting & Closure | TBD         | TBD         | ⏳ Pending |
+| Automation Testing  | 2025-06-25  | 2025-07-20  | ✅ Completed |
+| Reporting & Closure | 2025-07-21  | 2025-07-25  | ✅ Completed |
 
 ---
 
@@ -22,9 +22,9 @@
   - Cart & Checkout
   - Account Deletion
 
-- **Test Cases Executed:** 41  
-- **Pass:** 34  
-- **Fail:** 7  
+**UI Test Cases:** 41  
+**Pass**: 34 ✅  
+**Fail**: 7 ❌
 - **Bugs Reported:** 10 (documented in `bug_report.md`)
 
 - **Testing Tools Used:**  

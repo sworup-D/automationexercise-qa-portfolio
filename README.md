@@ -1,14 +1,5 @@
 # 🧪 AutomationExercise QA Portfolio  
 
-## 📊 Build & Test Status
-
-<!-- GitHub Actions QA Pipeline -->
-![QA Pipeline](https://github.com/sworup-D/AutomationExercise-QA-Portfolio/actions/workflows/qa-pipeline.yml/badge.svg?branch=main)
-
-<!-- Individual jobs in the QA Pipeline (ensure job IDs match your YAML) -->
-![Cypress UI Tests](https://github.com/sworup-D/AutomationExercise-QA-Portfolio/actions/workflows/qa-pipeline.yml/badge.svg?branch=main&job=cypress-tests)
-![Postman API Tests](https://github.com/sworup-D/AutomationExercise-QA-Portfolio/actions/workflows/qa-pipeline.yml/badge.svg?branch=main&job=postman-tests)
-
 ## ⚙️ Project Versions
 
 ![Node.js](https://img.shields.io/badge/node-v22.16.0-brightgreen)
@@ -21,22 +12,7 @@ A complete **QA portfolio project** base on the [AutomationExercise](https://aut
 
 ---
 
-📂 **Project Structure**
-
-AutomationExercise-QA-Portfolio/
-│
-├── **api/**
-│   ├── **manual/**        # API manual test cases (Excel/Markdown), bug reports
-│   └── **automation/**    # Postman collection, Newman CLI, reports
-│
-├── **ui/**
-│   ├── **manual/**        # UI manual test cases (Excel/Markdown), bug reports
-│   └── **automation/**    # Cypress scripts, fixtures, reports
-│
-├── **docs/**              # Test plan, summary, strategy
-├── **.github/workflows/** # GitHub Actions CI/CD pipelines
-├── **.gitignore**         # Ignore node_modules, reports, env files
-└── **README.md**          # Main documentation
+Project Structure: The AutomationExercise-QA-Portfolio repository is organized into API and UI folders, each containing manual test cases and automation scripts; it also includes a docs folder for test plans and summaries, a .github/workflows folder for CI/CD pipelines, a .gitignore file to exclude unnecessary files, and the main README.md documentation.
 
 ---
 
@@ -138,8 +114,8 @@ Your input helps me grow and make this portfolio even better!
 👨‍💻 Author
 
 Sworup Dhungana
-📧 [sworupdhungana963@gmail.com](mailto:sworupdhungana963@gmail.com) | 🌐 [LinkedIn](https://www.linkedin.com/in/sworup-dhungana-943075317/) | [GitHub](https://github.com/sworup-D)
-
+[Email](mailto:sworupdhungana963@gmail.com) | [GitHub Portfolio](https://github.com/sworup-D)  
+[LinkedIn](https://www.linkedin.com/in/sworup-dhungana-943075317)  
 
 
 
