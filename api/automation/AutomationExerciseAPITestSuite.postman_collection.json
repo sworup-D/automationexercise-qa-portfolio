@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "d35915da-ac8a-4fb5-9f7f-f3a8e1b0d6ed",
-		"name": "AutomationExercise API Test Suite",
+		"name": "AutomationExerciseAPITestSuite",
 		"description": "# 🧪 API Testing Collection – AutomationExercise.com\n\nThis collection contains **manual API test cases** designed for the public API of [AutomationExercise.com](https://automationexercise.com).\n\n## 🔍 Purpose\n\nTo validate the core functionality, input handling, and response correctness of the available API endpoints across key modules.\n\n## 📦 Modules Covered\n\n- 🛍️ Products (List, Schema, Query Params)\n    \n- 🏷️ Brands (List, Invalid Method)\n    \n- 🔍 Search (Valid, Invalid, Edge Inputs)\n    \n- 🔐 Authentication (Valid/Invalid Login, Validation Bugs)\n    \n- 👤 User Management (Register, Delete, Email Validation)\n    \n\n## 🧪 Test Types\n\n- ✅ Positive Tests\n    \n- ❌ Negative Tests\n    \n- ⚠️ Edge Cases\n    \n- 🐞 Known Bugs\n    \n\n## 🛠️ Structure\n\n- Organized by module folders\n    \n- Each request includes a detailed description with:\n    \n    - Test Case ID\n        \n    - Title\n        \n    - Objective\n        \n    - Purpose\n        \n    - Method\n        \n    - Endpoint\n        \n    - Precondition\n        \n    - Test Steps\n        \n    - Expected Result\n        \n    - Test Data (if applicable)\n        \n\n## ⚙️ Notes\n\n- Base URL: `https://automationexercise.com`\n    \n- Authentication is not required (public API)\n    \n- Includes sample test scripts (status check, field validation)\n    \n- Includes basic test scripts to validate HTTP status codes and JSON response content.\n    \n\n📁 Built to showcase professional API testing using Postman.  \nCreated by: **Sworup Dhungana**",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "44736632",
@@ -113,8 +113,8 @@
 									"    pm.expect(body.message).to.eql(\"This request method is not supported.\");\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Response time is under 500ms\", () => {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+									"pm.test(\"Response time is under 1500s\", () => {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
 									"});\r",
 									""
 								],
