@@ -1,9 +1,21 @@
 # 🧪 AutomationExercise QA Portfolio  
 
-![QA Pipeline](https://github.com/sworup-D/AutomationExercise-QA-Portfolio/actions/workflows/qa-pipeline.yml/badge.svg)
-![Cypress Tests](https://img.shields.io/badge/Cypress-UI%20Tests-green)
-![Postman/Newman](https://img.shields.io/badge/Postman-API%20Tests-blue)
+## 📊 Build & Test Status
+
+<!-- GitHub Actions QA Pipeline -->
+![QA Pipeline](https://github.com/sworup-D/AutomationExercise-QA-Portfolio/actions/workflows/qa-pipeline.yml/badge.svg?branch=main)
+
+<!-- Individual jobs in the QA Pipeline (ensure job IDs match your YAML) -->
+![Cypress UI Tests](https://github.com/sworup-D/AutomationExercise-QA-Portfolio/actions/workflows/qa-pipeline.yml/badge.svg?branch=main&job=test-ui)
+![Postman API Tests](https://github.com/sworup-D/AutomationExercise-QA-Portfolio/actions/workflows/qa-pipeline.yml/badge.svg?branch=main&job=test-api)
+
+## ⚙️ Project Versions
+
 ![Node.js](https://img.shields.io/badge/node-v22.16.0-brightgreen)
+![npm](https://img.shields.io/badge/npm-v10.9.2-blue)
+![Cypress](https://img.shields.io/badge/Cypress-v13.7.3-green)
+![Newman](https://img.shields.io/badge/Newman-v6.2.1-orange)
+![Postman](https://img.shields.io/badge/Postman-v2.0.0-lightgrey)
 
 A complete **QA portfolio project** base on the [AutomationExercise](https://automationexercise.com) website demonstrating **Manual Testing + Automation Testing (UI & API) + CI/CD** for real-world QA job standards.  
 
