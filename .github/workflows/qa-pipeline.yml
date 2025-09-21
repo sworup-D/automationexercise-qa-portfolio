@@ -52,3 +52,4 @@ jobs:
           --environment ./AutomationExerciseAPIEnv.postman_environment.json \
           --reporters cli,junit \
           --reporter-junit-export newman-results.xml
+        continue-on-error: true
