@@ -111,7 +111,7 @@ Feel free to submit pull requests if you find bugs or have ideas.
 
 Your input helps me grow and make this portfolio even better!
 
-👨‍💻 Author
+## 👨‍💻 Author
   
 **Sworup Dhungana**  
 [Email](mailto:sworupdhungana963@gmail.com)  
