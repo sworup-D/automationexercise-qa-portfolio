@@ -112,9 +112,11 @@ Feel free to submit pull requests if you find bugs or have ideas.
 Your input helps me grow and make this portfolio even better!
 
 👨‍💻 Author
-
+  
 **Sworup Dhungana**  
-[Email](mailto:sworupdhungana963@gmail.com) • [GitHub Portfolio](https://github.com/sworup-D) • [LinkedIn](https://www.linkedin.com/in/sworup-dhungana-943075317)
+[Email](mailto:sworupdhungana963@gmail.com)  
+[GitHub Portfolio](https://github.com/sworup-D)  
+[LinkedIn](https://www.linkedin.com/in/sworup-dhungana-943075317)
 
 
 
