@@ -56,7 +56,6 @@ npx cypress run
 # Or open Cypress Test Runner
 npx cypress open
 
-
 # Navigate to API automation folder
 cd api/automation
 
@@ -67,7 +66,8 @@ npm install -g newman@6.2.1
 newman run AutomationExerciseAPITestSuite.postman_collection.json \
     -e AutomationExerciseAPIEnv.postman_environment.json \
     -r cli,html
-
+```
+---
 
 ⚡ CI/CD Pipeline
 
@@ -94,6 +94,8 @@ Configured in .github/workflows/qa-pipeline.yml.
 
 📊 Real-world QA portfolio project
 
+---
+
 ## Disclaimer
 
 This project uses the publicly available [AutomationExercise](https://automationexercise.com) website solely for educational and testing purposes.  
@@ -104,6 +106,8 @@ No commercial use or redistribution of website assets is intended or authorized.
 
 The purpose of this project is to demonstrate Quality Assurance skills and build a professional portfolio.
 
+--- 
+
 ## Feedback & Contributions
 
 I welcome any feedback, suggestions, or collaboration to help improve this project!  
@@ -111,14 +115,12 @@ Feel free to submit pull requests if you find bugs or have ideas.
 
 Your input helps me grow and make this portfolio even better!
 
+--- 
+
 ## 👨‍💻 Author
   
 **Sworup Dhungana**  
-[Email](mailto:sworupdhungana963@gmail.com)  
-[GitHub Portfolio](https://github.com/sworup-D)  
-[LinkedIn](https://www.linkedin.com/in/sworup-dhungana-943075317)
-
-
+[Email](mailto:sworupdhungana963@gmail.com) | [GitHub Portfolio](https://github.com/sworup-D) | [LinkedIn](https://www.linkedin.com/in/sworup-dhungana-943075317)
 
 
 
