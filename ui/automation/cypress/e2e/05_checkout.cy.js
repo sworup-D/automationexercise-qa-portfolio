@@ -6,7 +6,7 @@ describe('Checkout Module ', () => {
   });
 
   // TC_028: Guest checkout
-  it.skip('TC_028: Attempted Checkout as a guest', () => {
+  it('TC_028: Attempted Checkout as a guest', () => {
     cy.contains('Blue Top').parents('.product-image-wrapper')
       .trigger('mouseenter')
       .within(() => {
